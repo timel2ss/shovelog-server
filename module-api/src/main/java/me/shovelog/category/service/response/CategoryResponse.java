@@ -1,0 +1,19 @@
+package me.shovelog.category.service.response;
+
+import lombok.Builder;
+import me.shovelog.category.domain.Category;
+
+@Builder
+public record CategoryResponse(
+        Long id,
+        String name,
+        String description
+) {
+    public static CategoryResponse of(Category category) {
+        return CategoryResponse.builder()
+                .id(category.getId())
+                .name(category.getName())
+                .description(category.getDescription())
+                .build();
+    }
+}
