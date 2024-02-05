@@ -9,23 +9,22 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Category {
+public class CategoryItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
+
+    private String itemName;
 
     private String description;
-
-    @OneToMany(mappedBy = "category")
-    private List<CategoryItem> categoryItems = new ArrayList<>();
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -34,12 +33,9 @@ public class Category {
     private LocalDateTime updatedAt;
 
     @Builder
-    private Category(String name, String description) {
-        this.name = name;
+    private CategoryItem(Category category, String itemName, String description) {
+        this.category = category;
+        this.itemName = itemName;
         this.description = description;
-    }
-
-    public void addItem(CategoryItem categoryItem) {
-        categoryItems.add(categoryItem);
     }
 }
