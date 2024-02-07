@@ -26,6 +26,8 @@ public class CategoryItem {
 
     private String description;
 
+    private Long itemOrder;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
 
@@ -33,9 +35,10 @@ public class CategoryItem {
     private LocalDateTime updatedAt;
 
     @Builder
-    private CategoryItem(Category category, String itemName, String description) {
+    private CategoryItem(Category category, String itemName, String description, Long itemOrder) {
         this.category = category;
         this.itemName = itemName;
         this.description = description;
+        this.itemOrder = itemOrder;
     }
 }

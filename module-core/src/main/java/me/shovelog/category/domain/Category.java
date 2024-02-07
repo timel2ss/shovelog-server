@@ -24,6 +24,8 @@ public class Category {
 
     private String description;
 
+    private Long categoryOrder;
+
     @OneToMany(mappedBy = "category")
     private List<CategoryItem> categoryItems = new ArrayList<>();
 
@@ -34,9 +36,10 @@ public class Category {
     private LocalDateTime updatedAt;
 
     @Builder
-    private Category(String name, String description) {
+    private Category(String name, String description, Long categoryOrder) {
         this.name = name;
         this.description = description;
+        this.categoryOrder = categoryOrder;
     }
 
     public void addItem(CategoryItem categoryItem) {
