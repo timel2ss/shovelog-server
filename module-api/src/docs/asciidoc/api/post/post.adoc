@@ -1,0 +1,53 @@
+[[post-detail]]
+=== 게시글 상세 조회
+
+==== HTTP Request
+
+include::{snippets}/post-detail/http-request.adoc[]
+include::{snippets}/post-detail/path-parameters.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/post-detail/http-response.adoc[]
+include::{snippets}/post-detail/response-fields.adoc[]
+
+[[post-list]]
+=== 게시글 목록 조회
+
+==== HTTP Request
+
+include::{snippets}/post-list/http-request.adoc[]
+include::{snippets}/post-list/query-parameters.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/post-list/http-response.adoc[]
+include::{snippets}/post-list/response-fields.adoc[]
+
+[[post-category-list]]
+=== 카테고리 별 게시글 목록 조회
+
+==== HTTP Request
+
+include::{snippets}/post-category-list/http-request.adoc[]
+include::{snippets}/post-category-list/path-parameters.adoc[]
+include::{snippets}/post-category-list/query-parameters.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/post-category-list/http-response.adoc[]
+include::{snippets}/post-category-list/response-fields.adoc[]
+
+[[post-categoryItem-list]]
+=== 세부 카테고리 별 게시글 목록 조회
+
+==== HTTP Request
+
+include::{snippets}/post-categoryItem-list/http-request.adoc[]
+include::{snippets}/post-categoryItem-list/path-parameters.adoc[]
+include::{snippets}/post-categoryItem-list/query-parameters.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/post-categoryItem-list/http-response.adoc[]
+include::{snippets}/post-categoryItem-list/response-fields.adoc[]

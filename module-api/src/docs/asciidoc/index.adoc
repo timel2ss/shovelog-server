@@ -13,3 +13,8 @@ endif::[]
 == Category API
 
 include::api/category/category.adoc[]
+
+[[Post-API]]
+== Post API
+
+include::api/post/post.adoc[]
