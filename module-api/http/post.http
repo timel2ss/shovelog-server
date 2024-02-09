@@ -8,6 +8,13 @@ GET localhost:8080/api/v1/posts
 
 GET localhost:8080/api/v1/posts/{{title}}
 
+###
+
+< {%
+  request.variables.set("title", "존재하지 않는 게시글 제목")
+%}
+
+GET localhost:8080/api/v1/posts/{{title}}
 
 ###
 
@@ -20,7 +27,23 @@ GET localhost:8080/api/v1/category/{{categoryName}}/posts
 ###
 
 < {%
+  request.variables.set("categoryName", "존재하지 않는 카테고리 이름")
+%}
+
+GET localhost:8080/api/v1/category/{{categoryName}}/posts
+
+###
+
+< {%
   request.variables.set("itemName", "Spring")
+%}
+
+GET localhost:8080/api/v1/categoryItem/{{itemName}}/posts
+
+###
+
+< {%
+  request.variables.set("itemName", "존재하지 않는 세부 카테고리 이름")
 %}
 
 GET localhost:8080/api/v1/categoryItem/{{itemName}}/posts

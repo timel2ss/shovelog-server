@@ -5,6 +5,8 @@ import me.shovelog.category.domain.Category;
 import me.shovelog.category.domain.CategoryItem;
 import me.shovelog.category.repository.CategoryItemRepository;
 import me.shovelog.category.repository.CategoryRepository;
+import me.shovelog.exception.notfound.CategoryNotFoundException;
+import me.shovelog.exception.notfound.PostNotFoundException;
 import me.shovelog.post.domain.Post;
 import me.shovelog.post.domain.PostStatus;
 import me.shovelog.post.repository.PostRepository;
@@ -52,7 +54,7 @@ class PostServiceTest extends ServiceTest {
     void findByTitle2() {
         // when // then
         assertThatThrownBy(() -> postService.findByTitle("존재하지 않는 게시글 제목"))
-                .isInstanceOf(RuntimeException.class);
+                .isInstanceOf(PostNotFoundException.class);
     }
 
     @Test
@@ -66,7 +68,7 @@ class PostServiceTest extends ServiceTest {
 
         // when // then
         assertThatThrownBy(() -> postService.findByTitle("Dependency Injection"))
-                .isInstanceOf(IllegalStateException.class);
+                .isInstanceOf(PostNotFoundException.class);
     }
 
     @Test
@@ -107,7 +109,7 @@ class PostServiceTest extends ServiceTest {
 
         // when // then
         assertThatThrownBy(() -> postService.findByCategory("존재하지 않는 카테고리 이름", request))
-                .isInstanceOf(RuntimeException.class);
+                .isInstanceOf(CategoryNotFoundException.class);
     }
 
     @Test
@@ -144,7 +146,7 @@ class PostServiceTest extends ServiceTest {
 
         // when // then
         assertThatThrownBy(() -> postService.findByCategoryItem("존재하지 않는 세부 카테고리 이름", request))
-                .isInstanceOf(RuntimeException.class);
+                .isInstanceOf(CategoryNotFoundException.class);
     }
 
     private Category createCategory(String name, String description) {
