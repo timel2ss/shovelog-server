@@ -22,6 +22,7 @@ public class CategoryItem {
     @JoinColumn(name = "category_id")
     private Category category;
 
+    @Column(unique = true, nullable = false)
     private String itemName;
 
     private String description;
