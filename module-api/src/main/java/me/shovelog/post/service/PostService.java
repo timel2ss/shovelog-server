@@ -5,6 +5,8 @@ import me.shovelog.category.domain.Category;
 import me.shovelog.category.domain.CategoryItem;
 import me.shovelog.category.repository.CategoryItemRepository;
 import me.shovelog.category.repository.CategoryRepository;
+import me.shovelog.exception.notfound.CategoryNotFoundException;
+import me.shovelog.exception.notfound.PostNotFoundException;
 import me.shovelog.post.domain.Post;
 import me.shovelog.post.repository.PostRepository;
 import me.shovelog.post.service.response.PostDetailResponse;
@@ -25,9 +27,9 @@ public class PostService {
 
     public PostDetailResponse findByTitle(String title) {
         Post post = postRepository.findByTitle(title)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(PostNotFoundException::new);
         if (!post.isPublic()) {
-            throw new IllegalStateException();
+            throw new PostNotFoundException();
         }
         return PostDetailResponse.of(post);
     }
@@ -39,14 +41,14 @@ public class PostService {
 
     public PostListResponse findByCategory(String categoryName, Pageable pageable) {
         Category category = categoryRepository.findByName(categoryName)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(CategoryNotFoundException::new);
         List<Post> posts = postRepository.findByCategoryPublic(category.getId(), pageable);
         return PostListResponse.of(category, posts);
     }
 
     public PostListResponse findByCategoryItem(String categoryItemName, Pageable pageable) {
         CategoryItem categoryItem = categoryItemRepository.findByItemName(categoryItemName)
-                .orElseThrow(RuntimeException::new);
+                .orElseThrow(CategoryNotFoundException::new);
         List<Post> posts = postRepository.findByCategoryItemPublic(categoryItem, pageable);
         return PostListResponse.of(categoryItem, posts);
     }
