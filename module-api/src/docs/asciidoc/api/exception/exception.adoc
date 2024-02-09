@@ -1,0 +1,33 @@
+[[exception-404]]
+=== [404] Not Found 예외
+
+=== PostNotFoundException
+
+==== HTTP Request
+
+include::{snippets}/exception-post-not-found/http-request.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/exception-post-not-found/http-response.adoc[]
+include::{snippets}/exception-post-not-found/response-fields.adoc[]
+
+=== CategoryNotFoundException
+
+==== HTTP Request
+
+include::{snippets}/exception-category-not-found/http-request.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/exception-category-not-found/http-response.adoc[]
+include::{snippets}/exception-category-not-found/response-fields.adoc[]
+
+==== HTTP Request
+
+include::{snippets}/exception-categoryItem-not-found/http-request.adoc[]
+
+==== HTTP Response
+
+include::{snippets}/exception-categoryItem-not-found/http-response.adoc[]
+include::{snippets}/exception-categoryItem-not-found/response-fields.adoc[]
