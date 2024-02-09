@@ -1,0 +1,26 @@
+GET localhost:8080/api/v1/posts
+
+###
+
+< {%
+  request.variables.set("title", "Dependency Injection")
+%}
+
+GET localhost:8080/api/v1/posts/{{title}}
+
+
+###
+
+< {%
+  request.variables.set("categoryName", "백엔드")
+%}
+
+GET localhost:8080/api/v1/category/{{categoryName}}/posts
+
+###
+
+< {%
+  request.variables.set("itemName", "Spring")
+%}
+
+GET localhost:8080/api/v1/categoryItem/{{itemName}}/posts
